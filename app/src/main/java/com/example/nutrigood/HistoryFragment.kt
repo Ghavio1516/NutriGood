@@ -94,8 +94,7 @@ class HistoryFragment : Fragment() {
             valueProduct = totalSugar,
             kategori = kategori,
             rekomendasi = rekomendasi,
-            createdAt = createdAt
-        )
+            createdAt = createdAt)
 
         // Ambil token dari shared preferences
         val sharedPreferences = requireActivity().getSharedPreferences("auth", Context.MODE_PRIVATE)

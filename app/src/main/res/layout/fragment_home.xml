@@ -15,7 +15,6 @@
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
         android:contentDescription="logo"
-        android:maxHeight="100dp"
         android:src="@drawable/logonutrii" />
 
     <!-- Horizontal LinearLayout for the Product List and Today's Product text -->
@@ -35,7 +34,7 @@
             android:textColor="#257180"
             android:textSize="18sp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp" /> <!-- Added marginEnd to create spacing -->
+            android:layout_marginEnd="16dp" />
 
         <!-- Today's Product Text -->
         <TextView
@@ -46,26 +45,29 @@
             android:fontFamily="sans-serif-medium"
             android:textColor="#257180"
             android:textSize="18sp"
-            android:layout_marginBottom="8dp" /> <!-- Margin below Today's Product -->
-
+            android:layout_marginBottom="8dp" />
     </LinearLayout>
 
-    <!-- RecyclerView for Product List -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_product_list"
+    <!-- FrameLayout to switch between RecyclerViews -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:background="?android:colorBackground"
-        android:layout_marginTop="8dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp">
 
+        <!-- RecyclerView for Product List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_product_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_todays_product"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:background="?android:colorBackground"
-        android:layout_marginTop="8dp" />
+        <!-- RecyclerView for Today's Product -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_todays_product"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </FrameLayout>
 
 </LinearLayout>

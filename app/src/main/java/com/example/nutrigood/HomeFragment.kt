@@ -2,6 +2,7 @@ package com.example.nutrigood
 
 import ProductAdapter
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -66,18 +67,29 @@ class HomeFragment : Fragment() {
         fetchTodaysProduct()
 
         // Set click listener for Product List
+        val selectedColor = Color.parseColor("#257180") // Warna merah untuk yang dipilih
+        val defaultColor = Color.parseColor("#000000") // Warna hitam untuk yang tidak dipilih
+
         produclistText.setOnClickListener {
-            // Show product list, hide today's product
+            // Tampilkan daftar produk, sembunyikan produk hari ini
             recyclerView.visibility = View.VISIBLE
             recyclerViewToday.visibility = View.GONE
+
+            // Ubah warna teks untuk menunjukkan pilihan
+            produclistText.setTextColor(selectedColor)
+            todaysProductText.setTextColor(defaultColor)
         }
 
-        // Set click listener for Today's Product
         todaysProductText.setOnClickListener {
-
+            // Sembunyikan daftar produk, tampilkan produk hari ini
             recyclerView.visibility = View.GONE
             recyclerViewToday.visibility = View.VISIBLE
+
+            // Ubah warna teks untuk menunjukkan pilihan
+            produclistText.setTextColor(defaultColor)
+            todaysProductText.setTextColor(selectedColor)
         }
+
 
         return view
     }
